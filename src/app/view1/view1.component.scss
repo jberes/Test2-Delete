@@ -1,0 +1,13 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  width: 1177px;
+  height: 764px;
+  min-width: 50px;
+  min-height: 50px;
+  flex: 0 0 auto;
+}
