@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NorthwindRESTCustomersService } from '../services/northwind-rest-customers.service';
+import { NorthwindRESTExcel2JsonCustomersService } from '../services/northwind-rest-excel2json-customers.service';
+import { NorthwindRESTExcel2JsonOrdersService } from '../services/northwind-rest-excel2json-orders.service';
 
 @Component({
   selector: 'app-view1',
@@ -7,14 +8,17 @@ import { NorthwindRESTCustomersService } from '../services/northwind-rest-custom
   styleUrls: ['./view1.component.scss']
 })
 export class View1Component implements OnInit {
-  public northwindRESTCustomersTable1: any = null;
+  public northwindRESTExcel2JsonCustomersCustomers: any = null;
+  public northwindRESTExcel2JsonOrdersOrders: any = null;
 
   constructor(
-    private northwindRESTCustomersService: NorthwindRESTCustomersService,
+    private northwindRESTExcel2JsonCustomersService: NorthwindRESTExcel2JsonCustomersService,
+    private northwindRESTExcel2JsonOrdersService: NorthwindRESTExcel2JsonOrdersService,
   ) {}
 
   ngOnInit() {
     // depending on implementation, data subscriptions might need to be unsubbed later
-    this.northwindRESTCustomersService.getTable1().subscribe(data => this.northwindRESTCustomersTable1 = data);
+    this.northwindRESTExcel2JsonCustomersService.getCustomers().subscribe(data => this.northwindRESTExcel2JsonCustomersCustomers = data);
+    this.northwindRESTExcel2JsonOrdersService.getOrders().subscribe(data => this.northwindRESTExcel2JsonOrdersOrders = data);
   }
 }
